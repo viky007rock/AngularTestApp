@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Search User"
+                formControlName="search" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.search.errors}">
+            <div class="d-grid">
+                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                    type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row" *ngIf="user && !isError">
+    <div class="col-md-12 col-lg-12 mx-auto">
+      <h3 class="label-heading mb-4">Search User Detail</h3>
+    </div>
+    <div class="col-md-12 col-lg-12 mx-auto">
+        <label class="col-md-4">User Name</label><label class="col-md-8">{{user.name}}</label>
+        <label class="col-md-4">User Email Id</label><label class="col-md-8">{{user.email}}</label>
+        <label class="col-md-4">Location</label><label class="col-md-8">{{user.location}}</label>
+      </div>
+</div>
+<div class="row" *ngIf="isError">
+    <div class="col-md-12 col-lg-12 mx-auto">
+      <h3 class="label-heading mb-4">{{errorMessage}}</h3>
+    </div>
+</div>
